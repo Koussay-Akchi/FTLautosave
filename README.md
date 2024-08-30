@@ -1,7 +1,7 @@
 # FTL Autosave Manager 🚀
 
-<img src="images/screenshot.png" alt="Image 1" width="400" height="300" style="margin-right: 20px;">
-<img src="images/this_is_fine.png" alt="Image 2" width="400" height="300">
+<img src="images/screenshot.png" alt="Image 1" width="200" height="150" style="margin-right: 20px;">
+<img src="images/this_is_fine.png" alt="Image 2" width="200" height="150">
 
 Is the game supposed to be hard? Yes,
 
