@@ -24,7 +24,7 @@ jobs:
 
       - name: Run build script
         run: |
-          build.bat  # Ensure your build.bat script is in the root directory
+          .\build.bat  # Ensure your build.bat script is in the root directory
 
       - name: Determine the next version
         id: version
