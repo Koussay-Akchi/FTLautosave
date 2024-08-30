@@ -32,6 +32,10 @@ class FTLAutosave(QtWidgets.QWidget):
         button_layout = QtWidgets.QVBoxLayout()
         button_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
 
+        button_widget = QtWidgets.QWidget()
+        button_widget.setLayout(button_layout)
+        button_widget.setFixedWidth(300)  # Set the fixed width of the button layout
+
         self.label = QtWidgets.QLabel('Autosave Interval :')
         self.label.setFixedHeight(10)
         button_layout.addWidget(self.label)
@@ -60,7 +64,7 @@ class FTLAutosave(QtWidgets.QWidget):
         self.exit_button.clicked.connect(self.close)
         button_layout.addWidget(self.exit_button)
 
-        layout.addLayout(button_layout)
+        layout.addWidget(button_widget)
         self.setLayout(layout)
 
         self.setMask(self.create_rounded_mask(self.size()))
