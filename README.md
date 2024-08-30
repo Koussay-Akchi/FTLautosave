@@ -19,6 +19,13 @@ Fully automatic 1-click autosave manager for **FTL (Faster Than Light)**! 🛠�
 - **Backup Management**: Keep your backups in check. Never lose progress again!
 - **One-Click Restart & Restore**: Need a fresh start or want to restore from a backup? Done and done.
 
+## 🛠️ Usage
+
+- Set your autosave interval (in minutes).
+- Click “Play” to start FTL and initiate autosave and backup.
+- Use “Restart” to refresh your game files from autosave.
+- Hit “Restore Backup” to roll back to one of your previous backups.
+
 ## 💾 Installation
 
 1. **Clone the Repo**:
@@ -39,13 +46,6 @@ Fully automatic 1-click autosave manager for **FTL (Faster Than Light)**! 🛠�
     ```bash
     .\dist\autosave.exe
     ```
-
-## 🛠️ Usage
-
-- Set your autosave interval (in minutes).
-- Click “Play” to start FTL and initiate autosave and backup.
-- Use “Restart” to refresh your game files from autosave.
-- Hit “Restore Backup” to roll back to one of your previous backups.
 
 ## 🐛 Bugs & Issues
 
