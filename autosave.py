@@ -32,13 +32,15 @@ class FTLAutosave(QtWidgets.QWidget):
         button_layout = QtWidgets.QVBoxLayout()
         button_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
 
-        self.label = QtWidgets.QLabel('Autosave Interval (minutes) :')
-        self.label.setFixedHeight(10)  # Set to 0 or a minimal value
+        self.label = QtWidgets.QLabel('Autosave Interval :')
+        self.label.setFixedHeight(10)
         button_layout.addWidget(self.label)
 
         self.interval_spinbox = QSpinBox()
         self.interval_spinbox.setRange(1, 999)
         self.interval_spinbox.setValue(1)
+        self.update_spinbox_suffix()
+        self.interval_spinbox.valueChanged.connect(self.update_spinbox_suffix)
         button_layout.addWidget(self.interval_spinbox)
 
         self.play_button = QtWidgets.QPushButton('Play')
@@ -65,6 +67,13 @@ class FTLAutosave(QtWidgets.QWidget):
 
         self.ensure_folders_exist()
         self.update_button_states()
+
+    def update_spinbox_suffix(self):
+        value = self.interval_spinbox.value()
+        if value == 1:
+            self.interval_spinbox.setSuffix(' minute')
+        else:
+            self.interval_spinbox.setSuffix(' minutes')
 
     def ensure_folders_exist(self):
         os.makedirs(autosave_folder, exist_ok=True)
