@@ -5,9 +5,9 @@ import shutil
 import subprocess
 import time
 import threading
-from PyQt6 import QtWidgets, QtGui, QtCore
+from PyQt6 import QtWidgets, QtCore
 from PyQt6.QtGui import QIcon, QPainterPath, QRegion, QPixmap, QPainter
-from PyQt6.QtWidgets import QMessageBox, QFileDialog, QSpinBox, QLabel
+from PyQt6.QtWidgets import QMessageBox, QFileDialog, QSpinBox
 import sys
 		
 def resource_path(relative_path):
@@ -83,7 +83,6 @@ class FTLAutosave(QtWidgets.QWidget):
         else:
             self.interval_spinbox.setSuffix(' minutes')
             
-
     def ensure_folders_exist(self):
         os.makedirs(autosave_folder, exist_ok=True)
         os.makedirs(backup_folder, exist_ok=True)
