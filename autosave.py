@@ -29,12 +29,18 @@ class FTLAutosave(QtWidgets.QWidget):
         self.setWindowTitle('FTL Autosave Manager')
 
         layout = QtWidgets.QHBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
+
         button_layout = QtWidgets.QVBoxLayout()
         button_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
 
         button_widget = QtWidgets.QWidget()
         button_widget.setLayout(button_layout)
-        button_widget.setFixedWidth(300)  # Set the fixed width of the button layout
+        button_widget.setFixedWidth(300)
+
+        spacer = QtWidgets.QSpacerItem(1, 1, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        layout.addItem(spacer)
+        layout.addWidget(button_widget)
 
         self.label = QtWidgets.QLabel('Autosave Interval :')
         self.label.setFixedHeight(10)
@@ -64,9 +70,7 @@ class FTLAutosave(QtWidgets.QWidget):
         self.exit_button.clicked.connect(self.close)
         button_layout.addWidget(self.exit_button)
 
-        layout.addWidget(button_widget)
         self.setLayout(layout)
-
         self.setMask(self.create_rounded_mask(self.size()))
 
         self.ensure_folders_exist()
