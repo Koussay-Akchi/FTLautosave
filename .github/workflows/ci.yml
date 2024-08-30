@@ -34,7 +34,8 @@ jobs:
           echo "release-version=$date" >> $GITHUB_ENV
 
       - name: Echo Release Version
-        run: echo "Release Version: ${{ env.release-version }}"
+        run: |
+          echo "Release Version: ${{ env.release-version }}"
 
 
       - name: Create GitHub Release
