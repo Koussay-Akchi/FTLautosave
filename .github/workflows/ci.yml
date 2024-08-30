@@ -1,0 +1,62 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main  # Triggers on pushes to the main branch
+
+jobs:
+  build:
+    runs-on: windows-latest  # Use Windows runner to run the batch script
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install pyqt6
+
+      - name: Run build script
+        run: |
+          build.bat  # Ensure your build.bat script is in the root directory
+
+      - name: Determine the next version
+        id: version
+        run: |
+          # Get the latest tag
+          latest_tag=$(git describe --tags --abbrev=0)
+          echo "Latest tag: $latest_tag"
+
+          # Increment the minor version number
+          IFS='.' read -r major minor <<< "${latest_tag//v/}"
+          minor=$((minor + 1))
+          new_tag="v${major}.${minor}"
+
+          # Output new tag
+          echo "New tag: $new_tag"
+          echo "new_tag=$new_tag" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.new_tag }}
+          release_name: Release ${{ env.new_tag }}
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/autosave.exe 
+          asset_name: autosave-${{ env.new_tag }}.exe
+          asset_content_type: application/octet-stream
