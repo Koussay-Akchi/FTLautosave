@@ -36,7 +36,6 @@ class FTLAutosave(QtWidgets.QWidget):
 
         button_widget = QtWidgets.QWidget()
         button_widget.setLayout(button_layout)
-        button_widget.setFixedWidth(300)
 
         spacer = QtWidgets.QSpacerItem(1, 1, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
         layout.addItem(spacer)
@@ -67,6 +66,7 @@ class FTLAutosave(QtWidgets.QWidget):
 
         self.exit_button = QtWidgets.QPushButton('Exit')
         self.exit_button.setStyleSheet("QPushButton { margin-top: 20px; }")
+        self.exit_button.setFixedWidth(150)
         self.exit_button.clicked.connect(self.close)
         button_layout.addWidget(self.exit_button)
 
@@ -202,7 +202,7 @@ class FTLAutosave(QtWidgets.QWidget):
 
     def paintEvent(self, event):
         painter = QPainter(self)
-        pixmap = QPixmap(resource_path('bg.ico'))
+        pixmap = QPixmap(resource_path('bg.jpg'))
         painter.drawPixmap(self.rect(), pixmap)
         super().paintEvent(event)
 

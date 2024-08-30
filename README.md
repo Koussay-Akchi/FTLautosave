@@ -1,5 +1,8 @@
 # FTL Autosave Manager 🚀
 
+<img src="images/screenshot.png" alt="Image 1" width="400" height="300" style="margin-right: 20px;">
+<img src="images/this_is_fine.png" alt="Image 2" width="400" height="300">
+
 Is the game supposed to be hard? Yes,
 
 Are you supposed to lose because of your mistakes? Also yes,
@@ -19,20 +22,20 @@ Fully automatic 1-click autosave manager for **FTL (Faster Than Light)**! 🛠�
 1. **Clone the Repo**:
 
     ```bash
-    git clone https://github.com/yourusername/ftl-autosave-manager.git
-    cd ftl-autosave-manager
+    git clone https://github.com/Koussay-Akchi/FTLautosave.git
+    cd FTLautosave
     ```
 
-2. **Install Dependencies**:
+2. **Build**:
 
     ```bash
-    pip install pyqt6
+    .\build.bat
     ```
 
 3. **Run the App**:
 
     ```bash
-    python autosave.py
+    .\dist\autosave.exe
     ```
 
 ## 🛠️ Usage
