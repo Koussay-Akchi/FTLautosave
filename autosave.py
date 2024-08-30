@@ -32,14 +32,11 @@ class FTLAutosave(QtWidgets.QWidget):
         button_layout = QtWidgets.QVBoxLayout()
         button_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
 
-        interval_layout = QtWidgets.QHBoxLayout()
-        self.interval_label = QLabel('Autosave Interval (minutes):')
-        interval_layout.addWidget(self.interval_label)
         self.interval_spinbox = QSpinBox()
-        self.interval_spinbox.setRange(2, 999)  
-        self.interval_spinbox.setValue(2)  
-        interval_layout.addWidget(self.interval_spinbox)
-        button_layout.addLayout(interval_layout)
+        self.interval_spinbox.setRange(2, 999)
+        self.interval_spinbox.setValue(2)
+        button_layout.addWidget(self.interval_spinbox)
+
 
         self.play_button = QtWidgets.QPushButton('Play')
         self.play_button.clicked.connect(self.play)
