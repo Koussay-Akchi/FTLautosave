@@ -1,7 +1,9 @@
 # FTL Autosave Manager 🚀
 
 Is the game supposed to be hard? Yes,
+
 Are you supposed to lose because of your mistakes? Also yes,
+
 Is that more fun? probably not
 
 Fully automatic 1-click autosave manager for **FTL (Faster Than Light)**! 🛠️
@@ -30,7 +32,7 @@ Fully automatic 1-click autosave manager for **FTL (Faster Than Light)**! 🛠�
 3. **Run the App**:
 
     ```bash
-    python main.py
+    python autosave.py
     ```
 
 ## 🛠️ Usage
@@ -50,4 +52,4 @@ Fully automatic 1-click autosave manager for **FTL (Faster Than Light)**! 🛠�
 
 ---
 
-**FTL Autosave Manager** - Because every save counts! 🚀
+This is a little side project, it lacks polish but i will update it over time
