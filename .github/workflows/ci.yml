@@ -3,11 +3,11 @@ name: Build and Release
 on:
   push:
     branches:
-      - main  # Triggers on pushes to the main branch
+      - main
 
 jobs:
   build:
-    runs-on: windows-latest  # Use Windows runner to run the batch script
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -24,14 +24,18 @@ jobs:
 
       - name: Run build script
         run: |
-          .\build.bat  # Ensure your build.bat script is in the root directory
+          .\build.bat
 
       - name: Generate release version
         id: generate_version
         run: |
           $date = (Get-Date).ToString("yyyyMMdd")
           echo "Release version: $date"
-          ::set-output name=release-version::$date
+          echo "release-version=$date" >> $GITHUB_ENV
+
+      - name: Echo Release Version
+        run: echo "Release Version: ${{ env.release-version }}"
+
 
       - name: Create GitHub Release
         id: create_release
@@ -39,8 +43,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.generate_version.outputs.release-version }}
-          release_name: Release ${{ steps.generate_version.outputs.release-version }}
+          tag_name: ${{ env.release-version }}
+          release_name: Release ${{ env.release-version }}
           draft: false
           prerelease: false
 
@@ -50,6 +54,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/autosave.exe 
-          asset_name: autosave-${{ env.RELEASE_VERSION }}.exe
+          asset_path: ./dist/autosave.exe
+          asset_name: autosave-${{ env.release-version }}.exe
           asset_content_type: application/octet-stream
