@@ -82,6 +82,7 @@ class FTLAutosave(QtWidgets.QWidget):
             self.interval_spinbox.setSuffix(' minute')
         else:
             self.interval_spinbox.setSuffix(' minutes')
+            
 
     def ensure_folders_exist(self):
         os.makedirs(autosave_folder, exist_ok=True)
