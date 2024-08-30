@@ -26,26 +26,14 @@ jobs:
         run: |
           .\build.bat
 
-      - name: Generate release version
-        id: generate_version
-        run: |
-          $date = (Get-Date).ToString("yyyyMMdd")
-          echo "Release version: $date"
-          echo "release-version=$date" >> $GITHUB_ENV
-
-      - name: Echo Release Version
-        run: |
-          echo "Release Version: ${{ env.release-version }}"
-
-
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.release-version }}
-          release_name: Release ${{ env.release-version }}
+          tag_name: ${{ github.run_id }}-$(Get-Date).ToString("yyyyMMdd")
+          release_name: Release ${{ github.run_id }}-$(Get-Date).ToString("yyyyMMdd")
           draft: false
           prerelease: false
 
@@ -56,5 +44,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./dist/autosave.exe
-          asset_name: autosave-${{ env.release-version }}.exe
+          asset_name: autosave-${{ github.run_id }}-$(Get-Date).ToString("yyyyMMdd")}.exe
           asset_content_type: application/octet-stream
