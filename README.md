@@ -1,3 +1,7 @@
+> **🚨This repository is ARCHIVED! 🚨**
+>
+> Due to Python limitations the exe file gets too big (34+mb), this project was ported to java and worked on more [Here](https://github.com/Koussay-Akchi/FTLautosaveManager).
+
 # FTL Autosave Manager 🚀
 
 <div style="display: flex; gap: 20px;">
@@ -49,12 +53,12 @@ Fully automatic 1-click autosave manager for **FTL (Faster Than Light)**! 🛠�
 
 ## 🐛 Bugs & Issues
 
-- If you find any bugs, open an issue or send a pull request. Any criticism is welcome
+- If you find any bugs, open an issue or send a pull request. Any criticism is welcome.
 
 ## 🌟 Contributing
 
-- Want to contribute? Fork the repo, make your changes, and send a pull request. Any change is welcome
+- Want to contribute? Fork the repo, make your changes, and send a pull request. Any change is welcome.
 
 ---
 
-This is a little side project, it lacks polish but i will update it over time
+This is a little side project; it lacks polish but I will update it over time.
